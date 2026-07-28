@@ -1,3 +1,4 @@
+import './styles.css';
 let projectArr=[];
 let currentProject="inbox";
 let inboxArr=[];
