@@ -130,9 +130,3 @@ document.addEventListener("click", (e) => {
         }
     }
 });
-
-
-
-
-
-
