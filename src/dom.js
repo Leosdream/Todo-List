@@ -57,14 +57,19 @@ cancelBtn.addEventListener("click", () => {
 
 export function renderTodo(todoObj){
     const container= document.querySelector("#conatiner-main");
+    container.classList.add("todoContainer");
     container.innerHTML="";
     todoObj.forEach(todo => {
         const card = document.createElement("div");
+        card.classList.add("todo-card");
+    card.dataset.id = todo.id;
         const title = document.createElement("div");
         const description = document.createElement("div");
         const dueDate= document.createElement("div");
         const priority= document.createElement("div");
         const deleteButton = document.createElement("button");
+        deleteButton.classList.add("deleteTodoBtn");
+
 
     title.textContent = todo.title;
     description.textContent = todo.description;

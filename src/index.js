@@ -36,7 +36,7 @@ confirmProjectBtn.addEventListener("click", ()=>{
     projectArr.push(newProject);
     renderProject(projectArr[projectArr.length-1]);
     currentProject=newProject.id;
-    renderTodo();
+    renderTodo(newProject.todos);
 })
 
 const containerProject = document.querySelector("#containerProject");
@@ -68,7 +68,9 @@ const taskDescription = document.querySelector("#task-description");
 
 
 confirmTaskBtn.addEventListener("click", () => {
+    
    const leo= createTodo(taskName.value, taskDescription.value)
+//    console.log(leo);
    if(!leo){return;}
    if(currentProject==="inbox"){
     inboxArr.push(leo);
@@ -78,6 +80,8 @@ confirmTaskBtn.addEventListener("click", () => {
     projectArr.forEach(project => {
         if(project.id===currentProject){
             project.todos.push(leo);
+            console.log(projectArr[0].todos[0].id);
+            //  HEY, here, aici
             renderTodo(project.todos);
         }
     })
@@ -130,3 +134,28 @@ document.addEventListener("click", (e) => {
         }
     }
 });
+
+
+const containerMain = document.querySelector("#conatiner-main");
+containerMain.addEventListener("click", (e) => {
+    if (e.target.classList.contains("deleteTodoBtn")) {
+        
+    const parentCard = e.target.closest(".todo-card");
+    console.log(parentCard.dataset.id);
+    if(currentProject==="inbox"){
+        inboxArr = inboxArr.filter(todo => todo.id !== parentCard.dataset.id);
+        renderTodo(inboxArr);}
+
+
+    else if (currentProject!=="inbox"){
+        for(let i=0; i<projectArr.length; i++){
+            for(let j=0; j<projectArr[i].todos.length; j++){
+                if(projectArr[i].todos[j].id===parentCard.dataset.id){
+                    projectArr[i].todos.splice(j, 1);
+                    renderTodo(projectArr[i].todos);
+                    break;
+                }
+    }
+    
+}}}});
+
