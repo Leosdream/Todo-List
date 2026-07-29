@@ -51,9 +51,19 @@
                     <h2>Create New Task</h2>
                     
                     <label for="task-name">Task Name</label>
-                    <label for="task-description">Task Description</label>
                     <input type="text" id="task-name" placeholder="e.g. Work, Gym, Personal" required>
-                    <input type="text" id="task-description" placeholder="e.g. Work, Gym, Personal" required>
+                    <label for="task-description">Task Description</label>
+                    <input type="text" id="task-description" placeholder="Optional" >
+                    <label for="task-date">Due Date</label>
+                    <input type="date" id="task-date" placeholder="Optional">
+                   <label for="task-priority">Priority</label>
+                    <select id="task-priority" name="priority">
+                        <option value="none" selected>None</option>
+                        <option value="low">Low</option>
+                        <option value="medium" >Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                    
                     <div class="task-buttons">
                     <button type="button" id="cancel-task-btn">Cancel</button>
                     <button type="submit" id="confirm-task-btn">Create</button>

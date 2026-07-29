@@ -32,6 +32,7 @@ const projectName=document.querySelector("#project-name");
 
 
 confirmProjectBtn.addEventListener("click", ()=>{
+    if(projectName.value===""){return;}
     const newProject=createProject(projectName.value);
     projectArr.push(newProject);
     renderProject(projectArr[projectArr.length-1]);

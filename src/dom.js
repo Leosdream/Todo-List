@@ -55,40 +55,67 @@ cancelBtn.addEventListener("click", () => {
 
 }
 
-export function renderTodo(todoObj){
-    const container= document.querySelector("#conatiner-main");
-    container.classList.add("todoContainer");
-    container.innerHTML="";
-    todoObj.forEach(todo => {
-        const card = document.createElement("div");
-        card.classList.add("todo-card");
+export function renderTodo(todoObj = []) {
+  const container = document.querySelector("#conatiner-main");
+  container.classList.add("todoContainer");
+  container.innerHTML = "";
+
+  todoObj.forEach(todo => {
+    if (!todo) return;
+    const card = document.createElement("div");
+    card.classList.add("todo-card");
     card.dataset.id = todo.id;
-        const title = document.createElement("div");
-        const description = document.createElement("div");
-        const dueDate= document.createElement("div");
-        const priority= document.createElement("div");
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("deleteTodoBtn");
+
+    function createEditBtn(){
+        const editTodoBtn = document.createElement("button");
+        editTodoBtn.classList.add("editTodoBtn");
+    editTodoBtn.textContent = "Edit";
+        return editTodoBtn;
+    }
 
 
+    const title = document.createElement("div");
+    title.classList.add("todo-title");
     title.textContent = todo.title;
-    description.textContent = todo.description;
-    dueDate.textContent = todo.dueDate;
-    priority.textContent = todo.priority;
+    card.appendChild(title);
+    title.appendChild(createEditBtn());
+
+    if (todo.description ) {
+      const description = document.createElement("div");
+      description.classList.add("todo-description");
+      description.textContent = todo.description;
+      card.appendChild(description);
+      description.appendChild(createEditBtn());
+    }
+
+    if (todo.dueDate ) {
+      const dueDate = document.createElement("div");
+      dueDate.classList.add("todo-duedate");
+      dueDate.textContent = todo.dueDate;
+      card.appendChild(dueDate);
+      dueDate.appendChild(createEditBtn());
+    }
+
+    if (todo.priority ) {
+      const priority = document.createElement("div");
+      priority.classList.add("todo-priority");
+      priority.textContent = todo.priority;
+      card.appendChild(priority);
+      priority.appendChild(createEditBtn());
+    }
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("deleteTodoBtn");
     deleteButton.textContent = "Delete";
-    // attach delete buttons, priority styling, etc.
-    container.appendChild(card);
-    card.appendChild(title)
-    card.appendChild(description);
-    card.appendChild(dueDate);
-    card.appendChild(priority);
     card.appendChild(deleteButton);
-    })
 
+   
 
+    container.appendChild(card);
+  });
 }
-
 export function renderProject(value){
+ 
     const projectContainer=document.createElement("div");
     const project = document.createElement("button");
     const deleteBtn =document.createElement("button");
@@ -103,7 +130,6 @@ export function renderProject(value){
     projectContainer.appendChild(deleteBtn);
     project.textContent=value.name;
 projectContainer.dataset.id=value.id;
-
 
 }
 
