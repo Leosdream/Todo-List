@@ -204,11 +204,11 @@ parentCard.addEventListener("click", (e) => {
                         inboxArr[i].dueDate=updatedText;}
                         else if(rowDiv.classList.contains("task-priority")){
                             inboxArr[i].priority=updatedText;}
-
                 populateStorage();
                 break;
             }
         }
+        renderTodo(inboxArr);
         populateStorage();}
         else if(currentProject!=="inbox"){
             for(let i=0; i<projectArr.length; i++){
