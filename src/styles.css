@@ -284,3 +284,9 @@ opacity: 0;
 .todo-card > div:hover .editTodoBtn {
   opacity: 1;
 }
+
+.todo-title{
+  font-weight: 500;
+  font-size: 2rem;
+
+}

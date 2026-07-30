@@ -90,7 +90,7 @@ export function renderTodo(todoObj = []) {
 
     if (todo.dueDate ) {
       const dueDate = document.createElement("div");
-      dueDate.classList.add("todo-duedate");
+      dueDate.classList.add("task-date");
       dueDate.textContent = todo.dueDate;
       card.appendChild(dueDate);
       dueDate.appendChild(createEditBtn());
@@ -98,8 +98,8 @@ export function renderTodo(todoObj = []) {
 
     if (todo.priority ) {
       const priority = document.createElement("div");
-      priority.classList.add("todo-priority");
-      priority.textContent = todo.priority;
+      priority.classList.add("task-priority");
+      priority.textContent = "Priority: " +todo.priority;
       card.appendChild(priority);
       priority.appendChild(createEditBtn());
     }
@@ -123,7 +123,6 @@ export function renderProject(value){
     deleteBtn.className="delete";
     project.className="projectCreated";
     projectContainer.className="projectContainer";
-
     const containerProject= document.querySelector("#containerProject");
     containerProject.appendChild(projectContainer);
     projectContainer.appendChild(project);
@@ -134,6 +133,3 @@ projectContainer.dataset.id=value.id;
 }
 
 
-
-
-// making a localStorage creation function where everytime i create a project it can use the function and save it in the local storage?
