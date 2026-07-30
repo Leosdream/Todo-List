@@ -8,8 +8,8 @@
 <script defer src="main.js"></script></head>
 <body>
     <div class="container">
-    <div id="sideBar">
-        <button id="userName">User</button>
+    <div id="sideBar" style="color: white; text-align: center;"> ToDo App
+        <button id="userName" style="margin-bottom: 10px;"> User (tap to change)</button>
         <dialog id="userName-dialog">
             <form method="dialog" id="userName-form">
                 <input type="text" id="userName-title" placeholder="userName title" required>
@@ -24,7 +24,7 @@
     </div>
          <div id="containerProject">
             <div id="myProjects"> My Projects
-                <button id="addProjectButton">addProjectButton </button>
+                <button id="addProjectButton" style="font-size: 20px;">+</button>
                 <!-- add plus icon -->
             </div>
 
@@ -37,7 +37,7 @@
                     
                     <div class="dialog-buttons">
                     <button type="button" id="cancel-project-btn">Cancel</button>
-                    <button type="submit" id="confirm-project-btn">Create</button>
+                    <button type="submit" class="confirm-project-btn"id="confirm-project-btn">Create</button>
                     </div>
                 </form>
             </dialog>
@@ -47,29 +47,34 @@
     <div id="main">
         <button id="new-Task">+</button>
         <dialog id="task-dialog">
-                <form method="dialog" id="task-form">
-                    <h2>Create New Task</h2>
-                    
-                    <label for="task-name">Task Name</label>
-                    <label for="task-description">Task Description</label>
-                    <input type="text" id="task-name" placeholder="e.g. Work, Gym, Personal" required>
-                    <input type="text" id="task-description" placeholder="e.g. Work, Gym, Personal" required>
-                    <div class="task-buttons">
-                    <button type="button" id="cancel-task-btn">Cancel</button>
-                    <button type="submit" id="confirm-task-btn">Create</button>
-                    </div>
-                </form>
-            </dialog>
+    <form method="dialog" id="task-form">
+        <h2>Create New Task</h2>
+        
+        <label for="task-name">Task Name</label>
+        <input type="text" id="task-name" placeholder="e.g. Work, Gym, Personal" required>
+        
+        <label for="task-description">Task Description</label>
+        <input type="text" id="task-description" placeholder="Optional">
+        
+        <label for="task-dueDate">Due Date</label>
+        <input type="date" id="task-dueDate">
+       
+        <label for="task-priority">Priority</label>
+        <select id="task-priority" name="priority">
+            <option value="none" selected>None</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        
+        <div class="task-buttons">
+            <button type="button" id="cancel-task-btn">Cancel</button>
+            <button type="submit" id="confirm-task-btn">Create</button>
+        </div>
+    </form>
+</dialog>
             <div id="conatiner-main"></div>
     </div>
     </div>
 </body>
 </html>
-
-<!-- to implement switching between content ill save the default and the new projects in different localStorage cookies
-When i click on them it will delet the divs from main and introduce the divs from the memory of the project
-
-
-i want to put an array of objcet todo(like an array that has leo,edy etc) in each project and thats what i save in the localstorage
-
--->
