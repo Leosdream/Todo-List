@@ -21,6 +21,7 @@
          <div id="inbox"> 
          <button id="inboxBtn" class="inboxBtn active"> Inbox
          </button>
+         <button id="colorBtn" class="colorBtn">+++++</button>
     </div>
          <div id="containerProject">
             <div id="myProjects"> My Projects
@@ -73,7 +74,48 @@
         </div>
     </form>
 </dialog>
-            <div id="conatiner-main"></div>
+            <div id="conatiner-main">
+                <dialog id="editDialog">
+                    <form method="dialog" id="edit-form">
+                        <h2>Edit Task</h2>
+                        <label for="dialogEditText">Input Edit</label>
+                        <input type="text" id="dialogEditText" placeholder="e.g. Work, Gym, Personal" required>
+                        <div class="dialog-text-edit-buttons">
+                <button type="button" id="cancele-text-edit-buttons">Cancel</button>
+                <button type="submit" id="confirm-text-edit-buttons">Create</button>
+                        </form>
+                    </dialog>
+
+                    <dialog id="editDialog-date">
+                    <form method="dialog" id="edit-form-date">
+                        <h2>Edit Task</h2>
+                        <label for="dialogEditText-date">Input Edit</label>
+                        <input type="date" id="dialogEditText-date" required>
+                        <div class="dialog-text-edit-buttons-date">
+                <button type="button" id="cancele-text-edit-buttons-date">Cancel</button>
+                <button type="submit" id="confirm-text-edit-buttons-date">Create</button>
+                        </form>
+                    </dialog>
+
+                    <dialog id="editDialog-priority">
+                    <form method="dialog" id="edit-form-priority">
+                        <h2>Edit Task</h2> 
+                       
+                        <label for="dialogEditText-priority">Priority Edit</label>
+        <select id="dialogEditText-priority" name="priority">
+            <option value="none" selected>None</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+                        <div class="dialog-text-edit-buttons-priority">
+                <button type="button" id="cancele-text-edit-buttons-priority">Cancel</button>
+                <button type="submit" id="confirm-text-edit-buttons-priority">Create</button>
+                        </form>
+                    </dialog>
+        </div>
+
+            </div>
     </div>
     </div>
 </body>

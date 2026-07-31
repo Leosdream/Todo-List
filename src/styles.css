@@ -2,7 +2,7 @@
   --bg-primary:#f8fafc;--bg-sidebar:#0f172a;
     --bg-card:#ffffff;
   --text-main:#334155;--text-muted:#64748b;
---text-sidebar:#e2e8f0;--accent-color:#3b82f6;
+--text-sidebar:#e2e8f0;--accent-color:#5523fb;
   --accent-hover:#2563eb; --danger-color:#ef4444;
   --danger-hover:#dc2626;--border-color:#e2e8f0;--radius:8px;
     --shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -2px rgba(0,0,0,0.1);
@@ -21,6 +21,7 @@ width:100vw;
 }
 
 #sideBar{
+  position: relative;
 background-color:var(--bg-sidebar);color:var(--text-sidebar);
 padding:24px 16px;display:flex;flex-direction:column;
 gap:20px;box-shadow:2px 0 10px rgba(0,0,0,0.1);overflow-y:auto;
@@ -95,7 +96,8 @@ cursor:pointer;font-size:0.8rem;transition:all 0.2s ease;
 }
 
 .delete:hover{
-background:rgba(239,68,68,0.2);color:#ffffff;
+background:rgba(172, 50, 50, 0.627);
+color:red
 }
 
 #main {
@@ -105,7 +107,6 @@ position:relative;
 }
 
 #new-Task {
-  padding-bottom: 5px;
 position:absolute;top:5px;
 left:5px;background-color:var(--accent-color);
 color:#ffffff;border:none;width:48px;height:48px;
@@ -237,17 +238,17 @@ background-color:#e2e8f0;color:var(--text-main);
 }
 
 .active {
-background-color:#3b82f6 !important;
+background-color: var(--accent-color)!important;
 color:white !important;
 }
 
 .projectContainer.active{
-background-color:#3b82f6 !important;
+background-color: var(--accent-color)!important;
 color:white !important;
 }
 
 .delete.beta{
-background-color:white;
+
 }
 
 
@@ -261,13 +262,14 @@ background-color:white;
 
 }
 .todo-card:hover .deleteTodoBtn {
-  font-size: 10px;
-  background-color: #00000097;
-  padding: 6px;
-  color: white;
-  cursor:pointer;
-  border-radius:var(--radius);
+    font-size: 10px;
+    background-color: #0000001a;
+    padding: 6px;
+    color: #0000008c;
+    cursor: pointer;
+    border-radius: var(--radius);
 }
+
 
 .editTodoBtn {
   margin-left: auto;
@@ -285,10 +287,22 @@ opacity: 0;
 
 .todo-card > div:hover .editTodoBtn {
   opacity: 1;
+
+  ;
 }
+.editTodoBtn:hover { background-color: rgba(127, 127, 127, 0.13)}
+
+
 
 .todo-title{
   font-weight: 500;
   font-size: 2rem;
 
+}
+
+
+.colorBtn{
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
 }

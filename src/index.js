@@ -281,3 +281,6 @@ if(inboxArr==""){
 
 }
 
+// const colorBtn=document.querySelector("#color-btn");
+// colorBtn.addEventListener("click", ()=>{})
+
