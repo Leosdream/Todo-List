@@ -96,7 +96,7 @@ export function renderTodo(todoObj = []) {
       dueDate.appendChild(createEditBtn());
     }
 
-    if (todo.priority ) {
+    if (todo.priority && todo.priority !== "none" && todo.priority !== "") {
       const priority = document.createElement("div");
       priority.classList.add("task-priority");
       priority.textContent = "Priority: " +todo.priority;

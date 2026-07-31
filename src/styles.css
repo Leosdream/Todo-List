@@ -306,3 +306,13 @@ opacity: 0;
   left: 15px;
   bottom: 15px;
 }
+
+dialog input[type="date"],
+dialog select[name="priority"] {
+      padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}

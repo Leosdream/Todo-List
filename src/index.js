@@ -183,6 +183,7 @@ containerMain.addEventListener("click", (e) => {
 }}}});
 
  const parentCard = document.querySelector("#conatiner-main");
+
 parentCard.addEventListener("click", (e) => {
     if (e.target.classList.contains("editTodoBtn")) {
         const card = e.target.closest(".todo-card");
@@ -190,9 +191,40 @@ parentCard.addEventListener("click", (e) => {
         const id=card.dataset.id;
 
         const currentText = rowDiv.firstChild.textContent; 
-        const updatedText = prompt("Edit field:", currentText);
+        // const updatedText = prompt("Edit field:", currentText);
+        let updatedText;
+        let confirm;
+        let cancel;
+        let dialog;
+        let dialogEditText
+if(rowDiv.classList.contains("todo-title")||rowDiv.classList.contains("todo-description")){
+     dialog=document.querySelector("#editDialog");
+    confirm=document.querySelector("#confirm-text-edit-buttons")
+     cancel=document.querySelector("#cancel-text-edit-buttons")
+     dialogEditText= document.querySelector("#dialogEditText")
+    dialog.showModal();} 
+    
+    else if(rowDiv.classList.contains("task-date")){
+        dialog=document.querySelector("#editDialog-date");
+        confirm= document.querySelector("#confirm-text-edit-buttons-date")
+        cancel= document.querySelector("#cancel-text-edit-buttons-date")
+        dialogEditText= document.querySelector("#dialogEditText-date")
+        dialog.showModal();
+        }
 
-        if (updatedText) {
+        else if(rowDiv.classList.contains("task-priority")){
+            dialog=document.querySelector("#editDialog-priority");
+        confirm= document.querySelector("#confirm-text-edit-buttons-priority")
+        cancel= document.querySelector("#cancel-text-edit-buttons-priority")
+        dialogEditText= document.querySelector("#dialogEditText-priority")
+        dialog.showModal();
+        }
+
+    confirm.addEventListener("click", ()=>{
+// const dialogEditText= document.querySelector("#dialogEditText")
+updatedText=dialogEditText.value;
+dialog.close();
+ if (updatedText!==undefined) {
               if(currentProject==="inbox"){
         for(let i=0; i<inboxArr.length; i++){
             if(inboxArr[i].id===id){
@@ -202,14 +234,19 @@ parentCard.addEventListener("click", (e) => {
                     inboxArr[i].description=updatedText;}
                     else if(rowDiv.classList.contains("task-date")){
                         inboxArr[i].dueDate=updatedText;}
-                        else if(rowDiv.classList.contains("task-priority")){
+                        else if(rowDiv.classList.contains("task-priority") && updatedText!==""){
                             inboxArr[i].priority=updatedText;}
-                populateStorage();
+                            else if(rowDiv.classList.contains("task-priority")&& updatedText===""){
+                                inboxArr[i].priority="";
+                                rowDiv.remove();
+                                console.log("11111");
+                            }
                 break;
             }
         }
         renderTodo(inboxArr);
         populateStorage();}
+
         else if(currentProject!=="inbox"){
             for(let i=0; i<projectArr.length; i++){
             for(let j=0; j<projectArr[i].todos.length; j++){
@@ -228,6 +265,15 @@ parentCard.addEventListener("click", (e) => {
         }
         }
 
+    })
+    cancel.addEventListener("click", ()=>{
+        dialog.close();
+    })
+
+
+        
+
+       
     }});
 
 
@@ -278,9 +324,6 @@ if(inboxArr==""){
     renderTodo(inboxArr);
 }
 
-
 }
 
-// const colorBtn=document.querySelector("#color-btn");
-// colorBtn.addEventListener("click", ()=>{})
 
