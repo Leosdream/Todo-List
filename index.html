@@ -61,7 +61,7 @@
        
         <label for="task-priority">Priority</label>
         <select id="task-priority" name="priority">
-            <option value="none" selected>None</option>
+            <option value="" selected>None</option>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
@@ -73,8 +73,55 @@
         </div>
     </form>
 </dialog>
-            <div id="conatiner-main"></div>
+            <div id="conatiner-main">
+                
+        </div>
+
+            </div>
     </div>
     </div>
+
+
+    <dialog id="editDialog">
+                    <form method="dialog" id="edit-form">
+                        <h2>Edit Task</h2>
+                        <label for="dialogEditText">Input Edit</label>
+                        <input type="text" id="dialogEditText" required>
+                        <div class="dialog-text-edit-buttons">
+                <button type="button" id="cancel-text-edit-buttons">Cancel</button>
+                <button type="submit" id="confirm-text-edit-buttons">Create</button>
+                        </div>
+                        </form>
+                    </dialog>
+
+                    <dialog id="editDialog-date">
+                    <form method="dialog" id="edit-form-date">
+                        <h2>Edit Task</h2>
+                        <label for="dialogEditText-date">Input Edit</label>
+                        <input type="date" id="dialogEditText-date" required>
+                        <div class="dialog-text-edit-buttons-date">
+                <button type="button" id="cancel-text-edit-buttons-date">Cancel</button>
+                <button type="submit" id="confirm-text-edit-buttons-date">Create</button>
+                        </div>
+                        </form>
+                    </dialog>
+
+                    <dialog id="editDialog-priority">
+                    <form method="dialog" id="edit-form-priority">
+                        <h2>Edit Task</h2> 
+                       
+                        <label for="dialogEditText-priority">Priority Edit</label>
+        <select id="dialogEditText-priority" name="priority">
+            <option value="" selected>None</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+                        <div class="dialog-text-edit-buttons-priority">
+                <button type="button" id="cancel-text-edit-buttons-priority">Cancel</button>
+                <button type="submit" id="confirm-text-edit-buttons-priority">Create</button>
+                        </div>
+                        </form>
+                    </dialog>
 </body>
 </html>
